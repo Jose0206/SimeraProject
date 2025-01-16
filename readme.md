@@ -9,7 +9,7 @@ Cypress is a next generation front end testing tool built for the modern web. Th
 3. There are a lot dependencies that are not updated frequently in parallel with cypress. So while installing if you are seeing conflicts use`npm i --force`. 
 
 
-## To Run in Test Runner
+## To Run From Command Line Headless
 
  For windows machine:
 
@@ -17,12 +17,10 @@ Cypress is a next generation front end testing tool built for the modern web. Th
 
 Note: Running with this option will generate Report and screenshots.
 
-This will open the test runner window. Select the browser and then select the desired test file spec.
-
-
-## To Run From Command Line Headless
+## To Run in Test Runner
 
 Use npx or npm based on your system
 
     > npx cypress open 
 
+This will open the test runner window. Select the browser and then select the desired test file spec.
