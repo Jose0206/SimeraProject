@@ -17,7 +17,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
     },
-    baseUrl: process.env.BASE_URL, // Use the URL from the .env file
+    baseUrl: process.env.BASE_URL, 
     defaultCommandTimeout: 10000,
   },
   env: process.env,

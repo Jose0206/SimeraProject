@@ -1,4 +1,3 @@
-// Import the class
 import { faker } from '@faker-js/faker';
 import { Login } from './PageObject/loginPage';
 import { Home } from './PageObject/homePage';
@@ -7,8 +6,6 @@ import { Checkout } from './PageObject/checkoutPage';
 import { Overview } from './PageObject/overviewPage';
 import { Inventory } from './PageObject/inventoryPage';
 
-
-// Instantiate the class
 const home = new Home();
 const login = new Login();
 const cart = new Cart();
@@ -16,7 +13,6 @@ const checkout = new Checkout();
 const overview = new Overview();
 const inventory = new Inventory();
 
-// Define the test data
 const name = faker.person.firstName();
 const lastName = faker.person.lastName();
 const productNames = ['Sauce Labs Backpack', 'Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt'];
