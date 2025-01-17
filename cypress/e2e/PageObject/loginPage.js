@@ -16,6 +16,11 @@ class Login{
         return cy.get('.error');
     }
 
+    get loginCredentialsBox() {
+        return  cy.xpath('//div[contains(@class, "login_credentials_wrap-inner")]'); 
+    }
+        
+
     login(user, password) {
         this.userName.type(user);
         this.password.type(password);

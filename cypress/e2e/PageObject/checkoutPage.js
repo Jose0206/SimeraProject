@@ -4,59 +4,51 @@ class Checkout {
         return cy.get('.checkout-title');
     }
 
-    get FirstName() {
+    get firstName() {
         return cy.get('#first-name');
     }
 
-    get LastName() {
+    get lastName() {
         return cy.get('#last-name');
     }
 
-    get PostalCode() {
+    get postalCode() {
         return cy.get('#postal-code');
     }
 
-    get ContinueButton() {
+    get continueButton() {
         return cy.get('.cart_button');
     }
 
-    get FinishButton() {
+    get finishButton() {
         return cy.get('.cart_button');
     }
 
-    get FinishTitle() {
+    get finishTitle() {
         return cy.get('.complete-header');
     }
 
-    get FinishText() {
+    get finishText() {
         return cy.get('.complete-text');
     }
 
-    get FinishImage() {
+    get finishImage() {
         return cy.get('.pony_express');
     }
 
-    get BackHomeButton() {
-        return cy.get('.cart_button');
-    }
-
-    get CancelButton() {
-        return cy.get('.cart_button');
-    }
-
-    get ErrorText() {
+    get errorText() {
         return cy.get('h3');
     }
 
-    get rrorButton() {
+    get errorButton() {
         return cy.get('.error-button');
     }
 
-    completeCheckout(firstName, lastName, postalCode) {
-        this.FirstName.type(firstName);
-        this.LastName.type(lastName);
-        this.PostalCode.type(postalCode);
-        this.ContinueButton.click();
+    completeCheckout(name, lName, zipCode) {
+        this.firstName.type(name);
+        this.lastName.type(lName);
+        this.postalCode.type(zipCode);
+        this.continueButton.click();
     }
 }
 

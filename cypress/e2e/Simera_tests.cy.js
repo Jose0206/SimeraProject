@@ -6,7 +6,6 @@ import { Cart } from './PageObject/cartPage';
 import { Checkout } from './PageObject/checkoutPage';
 import { Overview } from './PageObject/overviewPage';
 import { Inventory } from './PageObject/inventoryPage';
-import { it } from 'mocha';
 
 
 // Instantiate the class
@@ -30,12 +29,14 @@ describe('Simera Tests', () => {
     cy.visit("/");
   });
 
-  it('Login with invalid credentials', () => {
+  it('Login using invalid credentials', () => {
     login.login('invalid', 'invalid');
-    login.errorMessage.should('be.visible');
+    login.loginCredentialsBox.should('be.visible');
+    login.errorMessage.should('contain', 'Username and password do not match any user in this service');
   });
 
   it('Login with valid credentials', () => {
+    login.loginCredentialsBox.should('be.visible');
     login.login('standard_user', 'secret_sauce');
     cy.url().should('include', 'inventory.html');
   });
@@ -65,8 +66,10 @@ describe('Simera Tests', () => {
     cart.checkoutButton.click();
     checkout.completeCheckout(name, lastName, '12345');
     overview.validateProductsInOverview(productNames);
-    checkout.FinishButton.click();
-    checkout.FinishTitle.should('be.visible');
+    checkout.finishButton.click();
+    checkout.finishTitle.should('contain', 'Thank you for your order!')
+    checkout.finishText.should('contain', 'Your order has been dispatched, and will arrive just as fast as the pony can get there!');
+    checkout.finishImage.should('be.visible');
   });
 
   it('Checkout without complete the form', () => {
@@ -75,13 +78,13 @@ describe('Simera Tests', () => {
     home.cartButton.should('be.visible');
     home.cartButton.click();
     cart.checkoutButton.click();
-    checkout.ContinueButton.click();
-    checkout.ErrorText.should('be.visible');
+    checkout.continueButton.click();
+    checkout.errorText.should('contain', 'Error: First Name is required');
   });  
 
   it('Logout User', () => {
     login.login('standard_user', 'secret_sauce');
     home.navigateTo('Logout');
-    login.userName.should('be.visible');
+    login.loginCredentialsBox.should('be.visible');
   });
 });
